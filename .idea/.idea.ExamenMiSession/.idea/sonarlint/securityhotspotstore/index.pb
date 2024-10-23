@@ -1,0 +1,5 @@
+
+c
+3Source/ExamenMiSession/ExamenMiSessionCharacter.cpp,1\6\1658a6323bdb9e3a30827e3882f5e73b623e2f23
+a
+1Source/ExamenMiSession/ExamenMiSessionCharacter.h,d\1\d13e89850548d5b69b384d8334ea595bdeecd67e
