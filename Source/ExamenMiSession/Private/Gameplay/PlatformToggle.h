@@ -14,7 +14,15 @@ class APlatformToggle : public AActor
 public:	
 	// Sets default values for this actor's properties
 	APlatformToggle();
+	UPROPERTY(EditAnywhere)
 	UStaticMeshComponent* Cylinder;
+	UPROPERTY(EditAnywhere)
+	UStaticMeshComponent* RedPlatform;
+	UPROPERTY(EditAnywhere)
+	UStaticMeshComponent* GreenPlatform;
+	bool isRed;
+	UMaterialInterface* GreenMat;
+	UMaterialInterface* RedMat;
 
 protected:
 	// Called when the game starts or when spawned
@@ -23,5 +31,5 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-	
+	virtual void NotifyHit(UPrimitiveComponent* MyComp, AActor* Other, UPrimitiveComponent* OtherComp, bool bSelfMoved, FVector HitLocation, FVector HitNormal, FVector NormalImpulse, const FHitResult& Hit) override;
 };

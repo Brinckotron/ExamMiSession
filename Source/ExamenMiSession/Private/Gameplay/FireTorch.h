@@ -14,9 +14,9 @@ class AFireTorch : public AActor
 public:	
 	// Sets default values for this actor's properties
 	AFireTorch();
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(EditAnywhere)
 	UStaticMeshComponent* Torch;
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(EditAnywhere)
 	USceneComponent* FireOrigin;
 
 

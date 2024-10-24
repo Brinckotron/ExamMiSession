@@ -14,13 +14,13 @@ class AWheelMachine : public AActor
 public:	
 	// Sets default values for this actor's properties
 	AWheelMachine();
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(EditAnywhere)
 	UStaticMeshComponent* Box;
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(EditAnywhere)
 	UStaticMeshComponent* ButtonYellow;
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(EditAnywhere)
 	UStaticMeshComponent* ButtonBlack;
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(EditAnywhere)
 	UStaticMeshComponent* Needle;
 	UPROPERTY(EditAnywhere)
 	UStaticMeshComponent* Wheel;

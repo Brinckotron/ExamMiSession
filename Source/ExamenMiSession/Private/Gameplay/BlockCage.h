@@ -14,7 +14,7 @@ class ABlockCage : public AActor
 public:	
 	// Sets default values for this actor's properties
 	ABlockCage();
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(EditAnywhere)
 	UStaticMeshComponent* Block;
 
 protected:
