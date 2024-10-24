@@ -51,6 +51,7 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int playerScore;
+	int torchesLit;
 
 protected:
 	/** Called for movement input */

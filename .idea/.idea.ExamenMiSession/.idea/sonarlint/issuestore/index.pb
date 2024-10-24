@@ -19,3 +19,5 @@ c
 3Source/ExamenMiSession/Private/Gameplay/BlockCage.h,d\f\dfe0bc61d3ad4cecd6baf1494b897f7cece0f536
 f
 6Source/ExamenMiSession/Private/Gameplay/WheelMachine.h,b\6\b68f6f5998e5b833c3a9c7e2be44c98226fffedf
+_
+/Source/ExamenMiSession/ExamenMiSession.Build.cs,a\d\ad194b2b8bdf0b4f2b89f126d9e5cbb5d281ba86

@@ -18,6 +18,10 @@ public:
 	UStaticMeshComponent* Torch;
 	UPROPERTY(EditAnywhere)
 	USceneComponent* FireOrigin;
+	UPROPERTY(EditAnywhere)
+	class UNiagaraComponent* TorchFire;
+	UPROPERTY(EditAnywhere)
+	bool isLit;
 
 
 protected:
@@ -27,5 +31,6 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+	virtual void NotifyHit(UPrimitiveComponent* MyComp, AActor* Other, UPrimitiveComponent* OtherComp, bool bSelfMoved, FVector HitLocation, FVector HitNormal, FVector NormalImpulse, const FHitResult& Hit) override;
 
 };

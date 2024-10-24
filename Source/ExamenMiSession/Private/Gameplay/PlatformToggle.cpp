@@ -20,6 +20,7 @@ void APlatformToggle::BeginPlay()
 {
 	Super::BeginPlay();
 	GreenPlatform->SetVisibility(false);
+	GreenPlatform->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 	RedMat = Cylinder->GetMaterial(0);
 	GreenMat = GreenPlatform->GetMaterial(0);
 	
@@ -42,15 +43,19 @@ void APlatformToggle::NotifyHit(UPrimitiveComponent* MyComp, AActor* Other, UPri
 		if (isRed && RedPlatform)
 		{
 			isRed = false;
-			RedPlatform->SetVisibility(false);
 			GreenPlatform->SetVisibility(true);
+			GreenPlatform->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
+			RedPlatform->SetVisibility(false);
+			RedPlatform->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 			Cylinder->SetMaterial(0, GreenMat);
 		}
 		else if (!isRed && GreenPlatform)
 		{
 			isRed = true;
 			RedPlatform->SetVisibility(true);
+			RedPlatform->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
 			GreenPlatform->SetVisibility(false);
+			GreenPlatform->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 			Cylinder->SetMaterial(0, RedMat);
 		}
 	}

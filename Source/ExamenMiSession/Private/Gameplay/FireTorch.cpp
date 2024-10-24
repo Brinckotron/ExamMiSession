@@ -3,6 +3,9 @@
 
 #include "FireTorch.h"
 
+#include "ExamenMiSession/ExamenMiSessionCharacter.h"
+#include "NiagaraComponent.h"
+
 // Sets default values
 AFireTorch::AFireTorch()
 {
@@ -12,6 +15,8 @@ AFireTorch::AFireTorch()
 	RootComponent = Torch;
 	FireOrigin = CreateDefaultSubobject<USceneComponent>("FireOrigin");
 	FireOrigin->AttachToComponent(Torch, FAttachmentTransformRules::KeepRelativeTransform);
+	TorchFire = CreateDefaultSubobject<UNiagaraComponent>("TorchFire");
+	TorchFire->AttachToComponent(FireOrigin, FAttachmentTransformRules::KeepRelativeTransform);
 
 }
 
@@ -19,6 +24,7 @@ AFireTorch::AFireTorch()
 void AFireTorch::BeginPlay()
 {
 	Super::BeginPlay();
+	TorchFire->SetVisibility(false);
 	
 }
 
@@ -27,5 +33,17 @@ void AFireTorch::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+}
+
+void AFireTorch::NotifyHit(UPrimitiveComponent* MyComp, AActor* Other, UPrimitiveComponent* OtherComp, bool bSelfMoved,
+	FVector HitLocation, FVector HitNormal, FVector NormalImpulse, const FHitResult& Hit)
+{
+	Super::NotifyHit(MyComp, Other, OtherComp, bSelfMoved, HitLocation, HitNormal, NormalImpulse, Hit);
+	if (Cast<AExamenMiSessionCharacter>(Other) && !isLit)
+	{
+		isLit = true;
+		Cast<AExamenMiSessionCharacter>(Other)->torchesLit++;
+		TorchFire->SetVisibility(true);
+	}
 }
 
