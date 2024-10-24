@@ -44,6 +44,14 @@ void AFireTorch::NotifyHit(UPrimitiveComponent* MyComp, AActor* Other, UPrimitiv
 		isLit = true;
 		Cast<AExamenMiSessionCharacter>(Other)->torchesLit++;
 		TorchFire->SetVisibility(true);
+		if (Cast<AExamenMiSessionCharacter>(Other)->torchesLit == 2)
+		{
+			if (!Cage->isRaised)
+			{
+				Cage->Raise();
+			}
+			
+		}
 	}
 }
 

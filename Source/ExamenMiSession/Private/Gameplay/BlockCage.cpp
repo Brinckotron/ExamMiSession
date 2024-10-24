@@ -10,6 +10,8 @@ ABlockCage::ABlockCage()
 	PrimaryActorTick.bCanEverTick = true;
 	Block = CreateDefaultSubobject<UStaticMeshComponent>("Block");
 	RootComponent = Block;
+	isRaised = false;
+	isRising = false;
 	
 }
 
@@ -17,6 +19,8 @@ ABlockCage::ABlockCage()
 void ABlockCage::BeginPlay()
 {
 	Super::BeginPlay();
+	originalPosition = Block->GetRelativeLocation();
+	finalPosition = originalPosition + (Block->GetUpVector()*500);
 	
 }
 
@@ -24,6 +28,28 @@ void ABlockCage::BeginPlay()
 void ABlockCage::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+	if (isRising)
+	{
+		FVector actualLocation = Block->GetRelativeLocation();
+		if (actualLocation != finalPosition)
+		{
+			Block->SetRelativeLocation(actualLocation + Block->GetUpVector()*10);
+		}
+		else
+		{
+			isRising = false;
+			isRaised = true;
+		}
+		
+	}
 
+}
+
+void ABlockCage::Raise()
+{
+	if(!isRaised)
+	{
+		isRising = true;
+	}
 }
 

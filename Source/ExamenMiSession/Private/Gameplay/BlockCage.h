@@ -16,6 +16,10 @@ public:
 	ABlockCage();
 	UPROPERTY(EditAnywhere)
 	UStaticMeshComponent* Block;
+	bool isRaised;
+	bool isRising;
+	FVector originalPosition;
+	FVector finalPosition;
 
 protected:
 	// Called when the game starts or when spawned
@@ -24,5 +28,6 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+	virtual void Raise();
 
 };

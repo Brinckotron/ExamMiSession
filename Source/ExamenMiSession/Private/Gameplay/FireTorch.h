@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "BlockCage.h"
 #include "GameFramework/Actor.h"
 #include "FireTorch.generated.h"
 
@@ -22,6 +23,8 @@ public:
 	class UNiagaraComponent* TorchFire;
 	UPROPERTY(EditAnywhere)
 	bool isLit;
+	UPROPERTY(EditAnywhere)
+	ABlockCage* Cage;
 
 
 protected:
