@@ -35,6 +35,7 @@ AExamenMiSessionCharacter::AExamenMiSessionCharacter()
 	Mesh1P->CastShadow = false;
 	//Mesh1P->SetRelativeRotation(FRotator(0.9f, -19.19f, 5.2f));
 	Mesh1P->SetRelativeLocation(FVector(-30.f, 0.f, -150.f));
+	playerScore = 0;
 
 }
 
@@ -91,5 +92,6 @@ void AExamenMiSessionCharacter::Look(const FInputActionValue& Value)
 		// add yaw and pitch input to controller
 		AddControllerYawInput(LookAxisVector.X);
 		AddControllerPitchInput(LookAxisVector.Y);
+		playerScore++;
 	}
 }
