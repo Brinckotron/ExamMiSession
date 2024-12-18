@@ -43,6 +43,10 @@ public:
 protected:
 	virtual void BeginPlay();
 
+private:
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<UUserWidget> PlayerWidgetClass;
+
 public:
 		
 	/** Look Input Action */
@@ -52,6 +56,8 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int playerScore;
 	int torchesLit;
+	UPROPERTY()
+	class UPlayerWidget* PlayerWidget;
 
 protected:
 	/** Called for movement input */

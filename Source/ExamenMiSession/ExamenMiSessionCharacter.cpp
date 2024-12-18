@@ -9,6 +9,8 @@
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
 #include "InputActionValue.h"
+#include "Private/Gameplay/PlayerWidget.h"
+#include "Blueprint/UserWidget.h"
 #include "Engine/LocalPlayer.h"
 
 DEFINE_LOG_CATEGORY(LogTemplateCharacter);
@@ -42,7 +44,10 @@ AExamenMiSessionCharacter::AExamenMiSessionCharacter()
 
 void AExamenMiSessionCharacter::BeginPlay()
 {
-	// Call the base class  
+	// Call the base class
+	auto UserWidget = CreateWidget(GetWorld(), PlayerWidgetClass);
+	PlayerWidget = Cast<UPlayerWidget>(UserWidget);
+	PlayerWidget->AddToViewport();
 	Super::BeginPlay();
 }
 
